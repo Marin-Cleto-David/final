@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina</title>
+    <style>
+        body {
+            background-color: #E2EBC8;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            background-color: #adc178;
+            border-radius: 20px;
+            position: absolute;
+            left: 360px;
+            top: 50px;
+        }
+        button:hover {
+            background-color: #f0ead2;
+        }
+        .placeholder {
+            width: 250px;
+            height: 50px;
+            position: absolute;
+            border-radius: 50px;
+            background-color: #ffddc3;
+            font-size: 25px;
+            left: 70px;
+            top: 50px;
+        }
+        .pokeimg1 {
+    position: absolute;
+    color: #443742;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+#pokeimg {
+    position: absolute;
+    left: 900px;
+    top: 250px;
+}
+
+.pokemov{
+    position: relative;
+    left: 200px;
+}
+</style>
+<input type="text" placeholder="Gardevoir" id="pokeName" class="placeholder">
+<img src="pokeball.png" alt="Pokeball" id="pokeimg" width="200px" class="pokeimg">
+
+<div class="pokeda"> 
+  <div id="pokename" class="pokeimg1" style="top: 150px; left: 100px;">Nombre:</div>
+  <div id="pokehe" class="pokeimg1" style="top: 190px; left: 100px;">Altura:</div>
+  <div id="pokewe" class="pokeimg1" style="top: 230px; left: 100px;">Peso del Pokemon:</div>
+  <div id="poketype" class="pokeimg1" style="top: 270px; left: 100px;">Tipo:</div>
+  <div id="pokeability" class="pokeimg1" style="top: 310px; left: 100px;">Habilidad del Pokemon:</div>
+  <div id="pokeid" class="pokeimg1" style="top: 350px; left: 100px;">ID del Pokemon:</div>
+  <div id="pokeorder" class="pokeimg1" style="top: 390px; left: 100px;">Orden del Pokemon:</div>
+</div>
+
+<div class="pokemov">
+  <div id="pokemove1" class="pokeimg1" style="top: 150px; left: 300px;">Movimiento 1:</div>
+  <div id="pokemove2" class="pokeimg1" style="top: 190px; left: 300px;">Movimiento 2:</div>
+  <div id="pokemove3" class="pokeimg1" style="top: 230px; left: 300px;">Movimiento 3:</div>
+  <div id="pokemove4" class="pokeimg1" style="top: 270px; left: 300px;">Movimiento 4:</div>
+  <div id="pokemove5" class="pokeimg1" style="top: 310px; left: 300px;">Movimiento 5:</div>
+</div>
+
+
+<button onclick="fetchPokemon()" class="button"></button>
+
+<div class="grafica">
+    <canvas id="miCanvas"></canvas>
+</div>
+
+<script>
+const fetchPokemon = () => {
+    const pokeNameInput = document.getElementById("pokeName");
+    let pokeName = pokeNameInput.value.toLowerCase();
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
+
+    fetch(url)
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json();
+            } else {
+                console.error("Error al obtener los datos del Pokémon");
+            }
+        })
+        .then((data) => {
+            if (data) {
+                console.log(data);
+
+                let pokeImg = data.sprites.front_default;
+                document.getElementById("pokeimg").src = pokeImg;
+
+                document.getElementById('pokename').innerHTML = `Nombre: ${data.name}`;
+                document.getElementById('pokehe').innerHTML = `Altura: ${data.height}`;
+                document.getElementById('pokewe').innerHTML = `Peso del Pokemon: ${data.weight}`;
+                document.getElementById('pokeorder').innerHTML = `Orden del Pokemon: ${data.order}`;
+                document.getElementById('pokeid').innerHTML = `ID del Pokemon: ${data.id}`;
+                document.getElementById('pokeability').innerHTML = `Habilidad del Pokemon: ${data.abilities[0].ability.name}`;
+
+                document.getElementById('poketype').innerHTML = `Tipo: ${data.types[0].type.name}`;
+                document.getElementById('pokemove1').innerHTML = `Movimiento 1: ${data.moves[0].move.name}`;
+                document.getElementById('pokemove2').innerHTML = `Movimiento 2: ${data.moves[1].move.name}`;
+                document.getElementById('pokemove3').innerHTML = `Movimiento 3: ${data.moves[2].move.name}`;
+                document.getElementById('pokemove4').innerHTML = `Movimiento 4: ${data.moves[3].move.name}`;
+
+               const miCanvas = document.getElementById('miCanvas').getContext('2d');
+               if (window.miCanvas != undefined)
+               window.miCanvas.destroy();
+            
+               window.miCanvas = new Chart(miCanvas, {
+                type: 'bar',
+                data: {
+                    labels: ["HP", "Attack", "Defense", "Special-A", "Special-D", "Speed"],
+                    datasets: [
+            {
+                label: `${data.forms[0].name}`,
+                 backgroundColor: 'aquamarine',
+                 data: [
+                    `${data.stats[0].base_stat}`,
+                    `${data.stats[1].base_stat}`,
+                    `${data.stats[2].base_stat}`,
+                    `${data.stats[3].base_stat}`,
+                    `${data.stats[4].base_stat}`,
+                    `${data.stats[5].base_stat}`
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+  ],
+  backgroundColor: [
+    'rgba(54, 162, 235, 0.5)',
+    'rgba(255, 99, 132, 0.5)',
+    'rgba(255, 206, 86, 0.5)',
+    'rgba(75, 192, 192, 0.5)',
+    'rgba(153, 102, 255, 0.5)',
+    'rgba(255, 159, 64, 0.5)'
+  ],
+  borderWidth: 1
+}]},
+options: {
+  scales: {
+    x: {
+      ticks: {
+        maxRotation: 90,
+        minRotation: 90,
+        color: 'purple',
+        font: { size: 15 }
+      }
+    }}}
+})}
+        });
+
+const pokeImage = (url) => {
+  const pokePhoto = document.getElementById("pokeImg");
+  pokePhoto.src = url;
+}}
+</script>
+</body>
+</html>

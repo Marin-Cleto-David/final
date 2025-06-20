@@ -1,0 +1,113 @@
+@import url('https://fonts.cdnfonts.com/css/voga'); /* font-family: 'Voga', serif; */
+@import url('https://fonts.cdnfonts.com/css/lovelyn'); /* font-family: 'Lovelyn', serif; */
+@import url('https://fonts.cdnfonts.com/css/glamor'); /* font-family: 'Glamor', serif; */
+@import url('https://fonts.cdnfonts.com/css/golden-state-serif'); /* font-family: 'Golden State Serif', serif; */
+@import url('https://fonts.cdnfonts.com/css/magnel-display-black'); /* font-family: 'Magnel Display Black', serif; */
+
+a, h5 { 
+    font-family: 'Lovelyn', serif;
+} 
+h1 { 
+    text-align: center; 
+    font-family: 'Voga', serif; 
+} 
+h2, p { 
+    text-align: center; 
+    color: #D7988C; 
+    font-family: 'Lovelyn', serif; 
+} 
+.jumbotron { 
+    background: #F2E8CF; 
+} 
+.jumbotron>hr {
+    border-top-color: #F2E8CF;
+}
+body { 
+    background-color: #A7C957; 
+    margin: 10px; 
+} 
+th, label { 
+    font-family: 'Lovelyn', serif 
+} 
+td, input { 
+    font-family: 'Lovelyn', serif 
+} 
+.navbarBg {
+    background: #BC4749;
+    
+}
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 255, 255) !important;
+}
+
+/* Dar estilos al menú desplegable */
+.dropdown-menu {
+    background-color: #D7988C;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.57);
+    min-width: 180px;
+    margin-top: 10px;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+/* Cambiar color de los elementos del dropdown */
+.dropdown-menu > a {
+    color: #f7f1e3;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambiar color al pasar el mouse sobre los elementos del dropdown */
+.dropdown-menu > a:hover {
+    background-color: #f2e8cf;
+    color: #573b3b;
+}
+
+/* ==========================
+   Estilos para las Tarjetas de Prácticas
+   ========================== */
+
+/* Estilos para las tarjetas */
+.card {
+    border: 0px solid #b0a17d; /* Contorno rojo */
+    background-color:  #F2E8CF ; /* Fondo ligeramente rojo */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px; /* Separación entre tarjetas */
+}
+
+.card-title{
+    font-family: 'Voga', serif;
+    font-size: 15px;
+    color: #795353
+    
+}
+
+.card-text{
+    font-family: 'Lovelyn', serif;
+    font-size: 15px;
+    color: #6A994E;
+}
+
+
+/* Separación entre el título "Práctica 1" y el contenido */
+.card-header {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    padding-bottom: 10px; /* Agrega separación con el contenido */
+    border-bottom: 0px solid #aca189c7 ; /* Línea divisoria entre título y contenido */
+    font-family: 'Lovelyn', serif;
+}
+.in {
+    transition: background-color 0.3s;
+}
+.in:hover {
+    background-color: rgb(200, 204, 148);
+
+}

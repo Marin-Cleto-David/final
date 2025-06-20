@@ -1,0 +1,99 @@
+/*----- Contendor Del Formulario -----*/
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+.container1{
+    width: auto;
+    
+    padding: 20px;
+    border-radius: 10px;
+}  
+
+/*----- Estilos De Los 'labels' e 'inputs' -----*/
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.form-group label {
+    font-size: 16px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 120px; /* Ajusta el ancho para alinear bien */
+    text-align: right;
+    font-weight: bold;
+    color: rgb(75, 7, 20);
+}
+.form-group input {
+    flex: 1; /* Hace que el input ocupe el espacio restante */
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #dd736a;
+    color: rgb(255, 255, 255);
+}
+
+/*----- Estilos De Los Select y Option -----*/
+.form-group select {
+    flex: 1; /* Hace que el select ocupe el espacio restante */
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #dd736a;
+    color: rgb(255, 255, 255);
+}
+.form-group select:focus {
+    outline: none;
+    border-color: #111111;
+    box-shadow: 0 0 5px rgba(7, 7, 7, 0.5);
+}
+.form-group select option {
+    padding: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+/*----- Boton De Enviar -----*/
+input[type="submit"] {
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: #A7C957;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 10px auto; /* Lo centra */
+}
+input[type="submit"]:hover {
+    background-color:#738a3d;
+    transform: scale(1.1, 1.35); /* Hace que el botón crezca un poco scale(x.y)*/
+}
+
+/*----- Estilos De La Tabla -----*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+}  
+th,td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}   
+tr:nth-child(even) {
+    background-color: #A7C957;
+    color: rgb(0, 0, 0);
+}   
+tr:nth-child(odd) {
+    background-color: rgb(204, 216, 146);
+    color: rgba(0, 0, 0, 0.832);
+}   
+th {            
+    background: #BC4749;
+    color: rgb(252, 248, 248);
+}
